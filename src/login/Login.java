@@ -28,6 +28,7 @@ public class Login {
 	JLabel validacao = new JLabel("");
 	
 	JLabel user = new JLabel("USUARIO: ");
+	
 	JTextField login = new JTextField ();
 		
 	JLabel senha1 = new JLabel ("SENHA: "); 
@@ -35,6 +36,7 @@ public class Login {
 	JPasswordField senha2 = new JPasswordField ();
 	    
     public static void main(String st[]) {
+    
         SwingUtilities.invokeLater( new Runnable()
         {
             public void run()
@@ -46,10 +48,11 @@ public class Login {
 
     }
     public void load() {
-	    	
+    		    	
     	JButton b1 = new JButton("ENTRAR");
         b1.addActionListener(new ActionListener() {
-	    		
+	    	
+        	
     		@Override
     		public void actionPerformed(ActionEvent e) {
     			

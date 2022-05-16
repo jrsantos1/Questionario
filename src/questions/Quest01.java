@@ -12,6 +12,7 @@ import javax.swing.ButtonModel;
 //import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -59,7 +60,7 @@ public class Quest01 extends JFrame{
     	
 
        // JLabel inform = new JLabel("teste");
-    	
+    	JTextArea pgnt = new JTextArea(questoes.get(indexQuestion).getTitulo());
         JLabel q1 = new JLabel(questoes.get(indexQuestion).getTitulo());
     	JRadioButton r1 = new JRadioButton(questoes.get(indexQuestion).getAlternativa01()); //Resposta Correta
     	r1.setActionCommand(questoes.get(indexQuestion).getAlternativa01());
@@ -101,7 +102,7 @@ public class Quest01 extends JFrame{
 					System.out.println("A opção do usuário é: " + opcaoDoUsuario);
 					
 					
-					if(!(indexQuestion > 3)) {
+					if(!(indexQuestion >= 8)) {
 						
 						indexQuestion = indexQuestion + 1;
 						
@@ -109,13 +110,14 @@ public class Quest01 extends JFrame{
 						r2.setText(questoes.get(indexQuestion).getAlternativa02());	
 						r3.setText(questoes.get(indexQuestion).getAlternativa03());	
 						r4.setText(questoes.get(indexQuestion).getAlternativa04());	
-						q1.setText(questoes.get(indexQuestion).getTitulo());
+						pgnt.setText(questoes.get(indexQuestion).getTitulo());
 						
 					}else {
 						System.out.println("Sua pontuação final é: " + pontucao.getPontuacao());
+						System.out.println("O número de questoes é: " + questoes.size());
 						frame.dispose();
-						FimDeJogo fim = new FimDeJogo();
-						fim.exibeMensagem();
+						EndGame seila = new EndGame(pontucao, pessoa);
+						
 					}															
 														
 				}
@@ -169,11 +171,19 @@ public class Quest01 extends JFrame{
     
     c.setLayout(null);
     
+    pgnt.setBounds(130,  150,  500, 20);
+    pgnt.setBackground(Color.black);
+    pgnt.setForeground(Color.white);
+    pgnt.setLineWrap(true);
+    pgnt.setEditable(false);
+    c.add(pgnt);
+    
+    
     q1.setBounds(130, 150, 500, 20);
     q1.setVerticalAlignment(SwingConstants.CENTER);
     q1.setBackground(Color.black);
     q1.setForeground(Color.white);
-    c.add(q1);
+    //c.add(q1);
     
     lista.get(0).setBounds(130, 250, 200, 20);
     lista.get(0).setBackground(Color.black);

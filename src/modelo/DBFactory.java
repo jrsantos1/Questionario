@@ -1,9 +1,11 @@
 package modelo;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class DBFactory {
 	
@@ -11,19 +13,28 @@ public class DBFactory {
 	
 	public Connection getConexao() {
 		
-		String stringConexao = "jdbc:sqlite:database.db";
+		//String stringConexao = "jdbc:sqlite:database.db";
 		
 		try {
 			
-			conexao = DriverManager.getConnection(stringConexao);
+			Properties prop = getProperties();
+			final String url = prop.getProperty("banco.url");
+			conexao = DriverManager.getConnection(url);
 			return conexao;
 			
-		}catch(SQLException e){
+		}catch(SQLException | IOException e ){
 			
 			throw new RuntimeException(e);
 			
 		}
 	
+	}
+	
+	private static Properties getProperties() throws IOException {
+		Properties pro = new Properties();
+		String path = "/conexao.properties";
+		pro.load(DBFactory.class.getResourceAsStream(path));
+		return pro;
 	}
 	
 	public void criarTabela(String query) {

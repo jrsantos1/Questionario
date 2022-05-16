@@ -30,6 +30,23 @@ public class PessoaDAO {
 		ps.close();
 		
 	}
+	
+	public String getPessoa(int id) throws SQLException {
+		
+		String query = "Select nome from Usuario where id = ?";
+		
+		PreparedStatement ps = conexao.prepareStatement(query);		
+				
+		ResultSet resultado = ps.executeQuery();
+		
+		if(resultado.next())
+			return (String) resultado.getString("Nome");
+		
+		return "Nenhum usuário foi encontrado";
+		
+		}		
+		
+	
 		public Boolean validaLogin(Pessoa pessoa){
 			
 		String query = "SELECT * FROM Usuario WHERE nome == ? AND senha == ?";
