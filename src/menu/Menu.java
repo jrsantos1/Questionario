@@ -5,16 +5,15 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 
 import login.Login;
-import modelo.entidades.Pessoa;
-import questions.Quest01;
+import model.entidades.Pessoa;
+import questions.Game;
+import questions.Scores;
+
 public class Menu {
 	
 	static Pessoa pessoa;
@@ -25,10 +24,10 @@ public class Menu {
 
     JFrame  frame = new JFrame();
     
-    ImageIcon gif = new ImageIcon(getClass().getResource("pixel-jeff-matrix-s.gif"));
+    ImageIcon gif = new ImageIcon(getClass().getResource("../contents/pixel-jeff-matrix-s.gif"));
 	JLabel picture = new JLabel(gif);
 
-    public static void main(String st[]) {
+    public static void main(String [] args) {
     	
     	Pessoa pessoa1 = pessoa;
     	
@@ -50,15 +49,29 @@ public class Menu {
     		@Override
     		public void actionPerformed(ActionEvent e) {
     			frame.dispose();
-    			Quest01 myquest01 = new Quest01(pessoa);
-                myquest01.load();
-                
-    		}
+    			Game myquest01 = new Game(pessoa);
+                try {
+                    myquest01.load();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+
+            }
     	});
         
-        JButton b2 = new JButton("HANKED");
-        
-    	JButton b3 = new JButton("CR�DITOS");
+        JButton b2 = new JButton("RANKING");
+        b2.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                Scores score = new Scores();
+                score.exibir();
+
+            }
+        });
+
+    	JButton b3 = new JButton("CRÉDITOS");
         b3.addActionListener(new ActionListener() {
     		
     		@Override
@@ -118,5 +131,78 @@ public class Menu {
     picture.setBounds(0, 0, 720, 980);
     picture.setLocation(-20, -240);
     c.add(picture);
+    }
+
+    public static class Credits {
+
+        static Pessoa pessoa;
+
+        JFrame  framecred = new JFrame();
+
+        ImageIcon gif = new ImageIcon(getClass().getResource("../contents/ezgif.com-gif-maker.gif"));
+        JLabel picture = new JLabel(gif);
+
+        JLabel cred = new JLabel("<html><center>DESENVOLVEDORES<br>"
+                + "<br><br>MATHEUS LOPES TRINDADE<br>"
+                + "<br><br>JHONATAN<br>"
+                + "<br><br>MURILO<br>"
+                + "<br><br>JOÃO");
+
+
+        public Credits(Pessoa pessoa) {
+            this.pessoa = pessoa;
+        }
+        public static void main(String st[]) {
+            SwingUtilities.invokeLater( new Runnable()
+            {
+                public void run()
+                {
+                    Credits mycred = new Credits(pessoa);
+                    mycred.load();
+                }
+            });
+
+        }
+        public void load() {
+
+            JButton b4 = new JButton("VOLTAR");
+            b4.addActionListener(new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent e) { //add+ encerrar app
+                    framecred.dispose();
+                    Menu mymenu = new Menu(pessoa);
+                    mymenu.load();
+
+                }
+            });
+
+        framecred.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        framecred.setSize(new Dimension(700, 700));
+        framecred.getContentPane().setBackground(Color.BLACK);
+        framecred.setLocationRelativeTo(null);
+        framecred.setResizable(false);
+        framecred.setUndecorated(true);
+        framecred.setVisible(true);
+
+
+        Container c = framecred.getContentPane();
+
+        c.setLayout(null); //vamos fazer a gestão manualmente
+
+        cred.setBounds(265, 50, 200, 400); //dimensoes e posicionamento do botão (os dois primeiros valores indicam a posicao absoluta do botao)
+        cred.setVerticalAlignment(SwingConstants.CENTER);
+        cred.setForeground(Color.white);
+        c.add(cred);
+
+        b4.setBounds(300, 640, 100, 20);
+        b4.setBackground(Color.black);
+        b4.setForeground(Color.white);
+        c.add(b4);
+
+        picture.setBounds(0, 0, 800, 800);
+        picture.setLocation(-50, -50);
+        c.add(picture);
+        }
     }
 }

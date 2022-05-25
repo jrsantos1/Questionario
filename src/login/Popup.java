@@ -14,8 +14,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-import modelo.dao.PessoaDAO;
-import modelo.entidades.Pessoa;
+import model.dao.PessoaDAO;
+import model.entidades.Pessoa;
 
 public class Popup {
 
@@ -71,8 +71,8 @@ public class Popup {
     		@Override
     		public void actionPerformed(ActionEvent e) { 
     			frame.dispose();
-    			Login mylogin = new Login();
-                mylogin.load();    							
+                //Login mylogin = new Login();
+                //mylogin.load();
     		}
     	});
         

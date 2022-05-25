@@ -5,6 +5,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,14 +16,14 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 import menu.Menu;
-import modelo.dao.PessoaDAO;
-import modelo.entidades.Pessoa;
+import model.dao.PessoaDAO;
+import model.entidades.Pessoa;
 
 public class Login {
 
     JFrame  frame = new JFrame("MENU");
 	    
-    ImageIcon gif = new ImageIcon(getClass().getResource("pixel-jeff-matrix-s.gif"));
+    ImageIcon gif = new ImageIcon(getClass().getResource("../contents/pixel-jeff-matrix-s.gif"));
 	JLabel picture = new JLabel(gif);
 	
 	JLabel validacao = new JLabel("");
@@ -34,8 +35,11 @@ public class Login {
 	JLabel senha1 = new JLabel ("SENHA: "); 
     
 	JPasswordField senha2 = new JPasswordField ();
-	    
-    public static void main(String st[]) {
+
+
+
+
+    public static void main(String [] args) {
     
         SwingUtilities.invokeLater( new Runnable()
         {
@@ -47,6 +51,10 @@ public class Login {
         });
 
     }
+
+
+
+
     public void load() {
     		    	
     	JButton b1 = new JButton("ENTRAR");
@@ -58,17 +66,22 @@ public class Login {
     			
     			Pessoa pessoa = new Pessoa(login.getText(), senha2.getText());
     			PessoaDAO pessoaDao = new PessoaDAO();
-    			
-    			if(pessoaDao.validaLogin(pessoa)) {
-    				
-    				frame.dispose();
-        			Menu mymenu = new Menu(pessoa);
-                    mymenu.load();    
-                    
-    			}else {
-    				validacao.setText("USU¡RIO E/OU SENHA INV¡LIDOS");	
-    			}       
-    		}
+                pessoa.setId(pessoaDao.retornaId(pessoa));
+
+                try {
+                    if(pessoaDao.validaLogin(pessoa)) {
+
+                        frame.dispose();
+                        Menu mymenu = new Menu(pessoa);
+                        mymenu.load();
+
+                    }else {
+                        validacao.setText("USUARIO E/OU SENHA INV√ÅLIDOS");
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
     	});
 
     	JButton b2 = new JButton("CADASTRAR");
@@ -78,7 +91,6 @@ public class Login {
     		public void actionPerformed(ActionEvent e) { //add+ encerrar app
     			Popup mypopup = new Popup();
                 mypopup.load();
-    							
     		}
     	});
         
