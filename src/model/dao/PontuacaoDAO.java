@@ -8,14 +8,13 @@ import java.util.ArrayList;
 
 import model.DBFactory;
 import model.entidades.Pontuacao;
-import org.jetbrains.annotations.NotNull;
 
 public class PontuacaoDAO {
 
 	Connection conexao = new DBFactory().getConexao();
 	ArrayList<Pontuacao> pontuacoes = new ArrayList<>();
 	
-	public void adicionaPontuacao(@NotNull Pontuacao pontuacao) throws SQLException {
+	public void adicionaPontuacao( Pontuacao pontuacao) throws SQLException {
 
 		String query = "insert into Pontuacao values (?,?, null)";
 		PreparedStatement ps = conexao.prepareStatement(query);
@@ -44,5 +43,23 @@ public class PontuacaoDAO {
 		return pontuacoes;
 		
 	}
-
+        public ArrayList<Pontuacao> getPontuacoestoP10() throws SQLException{
+		
+		String query = "SELECT Usuario.nome, Pontuacao.pontuacao FROM Usuario INNER JOIN Pontuacao ON Usuario.id == Pontuacao.id ORDER BY Pontuacao.pontuacao DESC LIMIT 20;";
+		
+		PreparedStatement ps = conexao.prepareStatement(query);		
+		
+		ResultSet resultado = ps.executeQuery();
+		
+		while(resultado.next()) {
+			pontuacoes.add(new Pontuacao(resultado.getString("nome"),resultado.getInt("pontuacao")));				
+		}
+		ps.close();
+		resultado.close();
+		return pontuacoes;
+		
+	}
+        
+        
+        
 }

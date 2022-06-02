@@ -7,7 +7,15 @@ public class Testes {
     }
 
     public static void main(String[] args) {
+    	
+    	String s = "";
+    	
+    	String result = s.getClass().getSimpleName();
 
+    	System.out.println(result);
+    	
+    	
+    	
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Digite o primeiro valor para somar:");
@@ -26,4 +34,7 @@ public class Testes {
         return resultado;
 
     }
+    
+   
+    
 }

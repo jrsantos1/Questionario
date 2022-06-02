@@ -5,57 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fd6a094-06ec-4b1d-87c0-b2c5bfbd0a97" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjetoTeste.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jar/mysql-connector-java-8.0.27.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" afterPath="$PROJECT_DIR$/.project" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/login/Login$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/login/Login$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/login/Login$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/login/Login$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/login/Login$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/login/Login$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/login/Login$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/login/Login$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/login/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/login/Login.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/login/Popup$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/login/Popup$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/login/Popup$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/login/Popup$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/menu/Credits$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/menu/Credits$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/menu/Credits.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/menu/Menu$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/menu/Menu$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/menu/Menu$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/menu/Menu$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/login/pixel-jeff-matrix-s.gif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/menu/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/menu/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/modelo/DBFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/modelo/TesteDeConexao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/modelo/dao/PessoaDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/modelo/dao/PontuacaoDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/modelo/dao/QuestoesDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/modelo/database.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/modelo/entidades/Pessoa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/modelo/entidades/Pontuacao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/modelo/entidades/Questao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/questions/Quest01$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/questions/Quest01$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/questions/Quest01$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/questions/Quest01.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/menu/ezgif.com-gif-maker.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/menu/pixel-jeff-matrix-s.gif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/login/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/login/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/login/Popup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/login/Popup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menu/Credits.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/DBFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/DBFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/TesteDeConexao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/TesteDeConexao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/dao/PessoaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/PessoaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/dao/PontuacaoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/PontuacaoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/dao/QuestoesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/PerguntaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/entidades/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entidades/Pessoa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/entidades/Pontuacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entidades/Pontuacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/entidades/Questao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entidades/Pergunta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/questions/EndGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/questions/EndGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/questions/Quest01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/questions/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/dao/PontuacaoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/PontuacaoDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
