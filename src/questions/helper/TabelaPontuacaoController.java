@@ -26,11 +26,16 @@ public class TabelaPontuacaoController {
         DefaultTableModel tabela = (DefaultTableModel) tbPontuacao.getTbPontuadores().getModel();
         tabela.setNumRows(0);
         
+        int posicao = 1; 
+        
         for(Pontuacao pontuacoes : pontuacao){
             tabela.addRow(new Object[]{
             pontuacoes.getNome(),
-            pontuacoes.getPontuacao()
+            pontuacoes.getPontuacao(),
+            posicao
             });
+            
+            posicao++;
         }
         
     }

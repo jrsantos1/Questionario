@@ -7,6 +7,7 @@ package questions;
 import java.awt.Color;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -27,6 +28,9 @@ public class Game2 extends javax.swing.JFrame {
     ArrayList<Pergunta> questoes;
     int numeroDeTentativas = 3;
     Pontuacao pontucao;
+    double initial;
+    ArrayList<String> listaDeAlternativas = new ArrayList<>();
+    int finall = 0;
 
     public Game2(Pessoa pessoa) {
         initComponents();
@@ -35,12 +39,15 @@ public class Game2 extends javax.swing.JFrame {
         getContentPane().setBackground(Color.BLACK);
         setLocationRelativeTo(null);
         setResizable(false);
+        this.initial = System.currentTimeMillis();
     }
 
     public void load() throws SQLException {
         setVisible(true);
+        //setUndecorated(true);
         questoes = new PerguntaDAO().getQuestoes();
-
+        Collections.shuffle(questoes);
+        
         lbTextoPergunta.setText(questoes.get(indexQuestion).getTitulo());
         rBtnAlt01.setText(questoes.get(indexQuestion).getAlternativa01());
         rBtnAlt02.setText(questoes.get(indexQuestion).getAlternativa02());
@@ -175,29 +182,28 @@ public class Game2 extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(lbNumeroPergunta)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbTextoPergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(rBtnAlt04, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(rBtnAlt03, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(rBtnAlt02, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(rBtnAlt01, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addGap(95, 95, 95)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(rBtnAlt04, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(rBtnAlt03, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(rBtnAlt02, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(rBtnAlt01, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnProximo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(lbNumeroPergunta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbTextoPergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(27, 27, 27)
                     .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(458, Short.MAX_VALUE)))
+                    .addContainerGap(497, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,30 +267,64 @@ public class Game2 extends javax.swing.JFrame {
                     iconCor03.setVisible(false);
                     numeroDeTentativas = numeroDeTentativas - 1;
                 } else if (numeroDeTentativas == 0) {
+                    finall = (int) Math.round((System.currentTimeMillis() - initial) / 1000);
+                    if ((pontucao.getPontuacao() * 10 - finall) < 0) {
+                        pontucao.setPontuacao(0);
+                    }else{
+                    pontucao.setPontuacao(pontucao.getPontuacao() * 10 - finall);
+                    }
                     dispose();
                     EndGame2 finish;
                     finish = new EndGame2(pontucao, pessoa);
-                    finish.load();;
+                    try {
+                        finish.load();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(Game2.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    ;
                 }
             }
 
-            if (!(indexQuestion >= 8)) {
+            if (!(indexQuestion >= 9)) {
 
                 System.out.println("Cheguei no index+");
 
                 indexQuestion = indexQuestion + 1;
-
+                
+                listaDeAlternativas.add(questoes.get(indexQuestion).getAlternativa01());
+                listaDeAlternativas.add(questoes.get(indexQuestion).getAlternativa02());
+                listaDeAlternativas.add(questoes.get(indexQuestion).getAlternativa03());
+                listaDeAlternativas.add(questoes.get(indexQuestion).getAlternativa04());
+                
+                Collections.shuffle(listaDeAlternativas);
+                
+                for (String alternativa : listaDeAlternativas) {
+                    System.out.println(alternativa);
+                }
+                
                 lbTextoPergunta.setText(questoes.get(indexQuestion).getTitulo());
-                rBtnAlt01.setText(questoes.get(indexQuestion).getAlternativa01());
-                rBtnAlt02.setText(questoes.get(indexQuestion).getAlternativa02());
-                rBtnAlt03.setText(questoes.get(indexQuestion).getAlternativa03());
-                rBtnAlt04.setText(questoes.get(indexQuestion).getAlternativa04());
-
+                rBtnAlt01.setText(listaDeAlternativas.get(0));
+                rBtnAlt02.setText(listaDeAlternativas.get(1));
+                rBtnAlt03.setText(listaDeAlternativas.get(2));
+                rBtnAlt04.setText(listaDeAlternativas.get(3));
+                
+                listaDeAlternativas.clear();
+                
             } else {
+                finall = (int) Math.round((System.currentTimeMillis() - initial) / 1000);
+                if ((pontucao.getPontuacao() * 10 - finall) < 0) {
+                    pontucao.setPontuacao(0);
+                }else{
+                pontucao.setPontuacao(pontucao.getPontuacao() * 10 - finall);
+                }
                 dispose();
                 EndGame2 finish;
                 finish = new EndGame2(pontucao, pessoa);
-                finish.load();
+                try {
+                    finish.load();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Game2.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 

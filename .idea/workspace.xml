@@ -5,21 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fd6a094-06ec-4b1d-87c0-b2c5bfbd0a97" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" afterPath="$PROJECT_DIR$/.project" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/login/Login$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/login/Login$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/login/Login$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/login/Login$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/login/Login$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/login/Login$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/login/Login$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/login/Login$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/login/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/login/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/login/Popup$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/login/Popup$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/login/pixel-jeff-matrix-s.gif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/menu/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/menu/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/menu/ezgif.com-gif-maker.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/menu/pixel-jeff-matrix-s.gif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/login/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/login/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/dao/PontuacaoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/dao/PontuacaoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/questions/TabelaPontuacao.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/questions/TabelaPontuacao.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/questions/TabelaPontuacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/questions/TabelaPontuacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/questions/helper/TabelaPontuacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/questions/helper/TabelaPontuacaoController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +59,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/jar/mysql-connector-java-8.0.27.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../EstudosJava" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />

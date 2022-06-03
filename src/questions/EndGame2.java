@@ -56,7 +56,8 @@ public class EndGame2 extends javax.swing.JFrame {
         lbFimDeJogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbFimDeJogo.setText("Fim de Jogo");
 
-        lbPontuacaoFinal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbPontuacaoFinal.setBackground(new java.awt.Color(255, 255, 255));
+        lbPontuacaoFinal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbPontuacaoFinal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         btnFinalizarJogo.setBackground(new java.awt.Color(0, 0, 0));
@@ -146,7 +147,7 @@ public class EndGame2 extends javax.swing.JFrame {
 
     public void load() throws SQLException {
         setVisible(true);
-        lbPontuacaoFinal.setText("Parabéns " + pessoa.getNome() + ", você fez " + pontuacao.getPontuacao() + " Pontos!!");
+        lbPontuacaoFinal.setText("Parabéns, " + pessoa.getNome() + "!! Você fez " + pontuacao.getPontuacao() + " Pontos!!");
         PontuacaoDAO pontuacaoDao = new PontuacaoDAO();
         pontuacaoDao.adicionaPontuacao(pontuacao);
     }
