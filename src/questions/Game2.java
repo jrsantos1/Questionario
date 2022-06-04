@@ -29,6 +29,7 @@ public class Game2 extends javax.swing.JFrame {
     int numeroDeTentativas = 3;
     Pontuacao pontucao;
     double initial;
+    int acertos = 0;
     ArrayList<String> listaDeAlternativas = new ArrayList<>();
     int finall = 0;
 
@@ -36,9 +37,11 @@ public class Game2 extends javax.swing.JFrame {
         initComponents();
         this.pessoa = pessoa;
         this.pontucao = new Pontuacao(pessoa.getId(), 0);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         getContentPane().setBackground(Color.BLACK);
         setLocationRelativeTo(null);
         setResizable(false);
+        
         this.initial = System.currentTimeMillis();
     }
 
@@ -77,6 +80,7 @@ public class Game2 extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(700, 700));
 
         rBtnAlt01.setBackground(new java.awt.Color(0, 0, 0));
@@ -118,7 +122,7 @@ public class Game2 extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Pontuação: ");
+        jLabel2.setText("Acertos: ");
 
         lbPontuacaoAtual.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbPontuacaoAtual.setForeground(new java.awt.Color(0, 204, 153));
@@ -175,6 +179,11 @@ public class Game2 extends javax.swing.JFrame {
         btnSair.setBackground(new java.awt.Color(0, 0, 0));
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
         btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -256,6 +265,8 @@ public class Game2 extends javax.swing.JFrame {
 
             if (opcaoDoUsuario.equalsIgnoreCase(questoes.get(indexQuestion).getAlternativaCorreta())) {
                 pontucao.setPontuacao(pontucao.getPontuacao() + 10);
+                acertos = acertos + 1;
+                lbPontuacaoAtual.setText(String.valueOf(acertos));
             } else {
                 if (numeroDeTentativas == 3) {
                     iconCor01.setVisible(false);
@@ -328,9 +339,13 @@ public class Game2 extends javax.swing.JFrame {
             }
         }
 
-        lbPontuacaoAtual.setText(String.valueOf(pontucao.getPontuacao()));
+        //lbPontuacaoAtual.setText(String.valueOf(pontucao.getPontuacao()));
 
     }//GEN-LAST:event_btnProximoActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments

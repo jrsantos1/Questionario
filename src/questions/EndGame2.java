@@ -30,9 +30,10 @@ public class EndGame2 extends javax.swing.JFrame {
         this.pontuacao = pontuacao;
         this.pessoa = pessoa;
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         getContentPane().setBackground(Color.BLACK);
-        setResizable(false);
         setLocationRelativeTo(null);
+        setResizable(false);
         
 
     }
@@ -50,6 +51,7 @@ public class EndGame2 extends javax.swing.JFrame {
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(0, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setUndecorated(true);
 
         lbFimDeJogo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         lbFimDeJogo.setForeground(new java.awt.Color(0, 255, 51));
@@ -62,7 +64,7 @@ public class EndGame2 extends javax.swing.JFrame {
 
         btnFinalizarJogo.setBackground(new java.awt.Color(0, 0, 0));
         btnFinalizarJogo.setForeground(new java.awt.Color(255, 255, 255));
-        btnFinalizarJogo.setText("Finalizar Jogo");
+        btnFinalizarJogo.setText("Sair");
         btnFinalizarJogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFinalizarJogoActionPerformed(evt);
@@ -71,7 +73,7 @@ public class EndGame2 extends javax.swing.JFrame {
 
         btnJogarNovamente.setBackground(new java.awt.Color(0, 0, 0));
         btnJogarNovamente.setForeground(new java.awt.Color(255, 255, 255));
-        btnJogarNovamente.setText("Jogar Novamente");
+        btnJogarNovamente.setText("Menu");
         btnJogarNovamente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnJogarNovamenteActionPerformed(evt);

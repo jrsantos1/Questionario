@@ -79,7 +79,7 @@ public class Menu {
             }
         });
 
-        JButton b3 = new JButton("CRÃ‰DITOS");
+        JButton b3 = new JButton("CRÉDITOS");
         b3.addActionListener(new ActionListener() {
 
             @Override
@@ -151,9 +151,9 @@ public class Menu {
 
         JLabel cred = new JLabel("<html><center>DESENVOLVEDORES<br>"
                 + "<br><br>MATHEUS LOPES TRINDADE<br>"
-                + "<br><br>JHONATAN<br>"
-                + "<br><br>MURILO<br>"
-                + "<br><br>JOÃƒO");
+                + "<br><br>JHONATAN RIBEIRO DOS SANTOS<br>"
+                + "<br><br>MURILO LIMA DOS SANTOS<br>"
+                + "<br><br>JOÃO PEDRO ARAUJO");
 
         public Credits(Pessoa pessoa) {
             this.pessoa = pessoa;

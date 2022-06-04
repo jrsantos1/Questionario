@@ -94,6 +94,14 @@ public class Login {
 
             }
         });
+        
+        senha2.addActionListener(new ActionListener(){
+            
+            @Override
+            public void actionPerformed(ActionEvent e) { //add+ entrada com ENTER
+                b1.doClick(13);
+            }
+        });
 
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(new Dimension(700, 700));
