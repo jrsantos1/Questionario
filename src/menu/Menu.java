@@ -13,7 +13,6 @@ import javax.swing.*;
 
 import login.Login;
 import model.entidades.Pessoa;
-import questions.Game;
 import questions.Game2;
 import questions.Scores;
 import questions.TabelaPontuacao;
